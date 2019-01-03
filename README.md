@@ -2,6 +2,7 @@
 a koa2 business framework. base on @weiceng1sheng/restful-design
 
 出于个人喜好，环境:
+
   node: 11
   eslint: indent 2, semi never, quotes single
   行宽: 180 (毕竟一行横着看比竖着看来的舒服)
