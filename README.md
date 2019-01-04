@@ -1,6 +1,12 @@
 # koa2
 a koa2 business framework. base on @weiceng1sheng/restful-design
 
+使用步骤: (想要吧一个项目的框搭建起来，似乎就无法弄成node-modules的形式了，目前先给出老土的解决办法吧)
+  1.新建自己项目
+  2.clone 本项目
+  3.复制本项目内容到自己项目，并删除.git文件夹
+  4.yarn / npm install
+
 出于个人喜好，环境:
   node: 11
   eslint: indent 2, semi never, quotes single
