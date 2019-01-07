@@ -7,6 +7,14 @@ a koa2 business framework. base on @weiceng1sheng/restful-design
   3.复制本项目内容到自己项目，并删除.git文件夹
   4.yarn / npm install
 
+启动:
+  websocket测试: yarn test:ws
+    运行在tests/ws文件夹下的测试类
+  rest接口测试: yarn test:rest
+    运行在tests/rest文件夹下的测试类
+  所有测试: yarn test
+    运行在tests/ws|rest文件夹下的测试类
+  启动项目: yarn serve
 出于个人喜好，环境:
   node: 11
   eslint: indent 2, semi never, quotes single
