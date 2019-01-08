@@ -1,4 +1,4 @@
-const app = new require('koa')()
+const app = new (require('koa'))()
 
 app.use(require('koa-body')({multipart: true}))
 app.use(require('koa2-cors')())
