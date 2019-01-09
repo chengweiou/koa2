@@ -1,7 +1,7 @@
 [server]
-port = 3000
+port = 8906
 [server.log]
-port = 4000 # 实时日志的端口
+port = 8907 # 实时日志的端口
 
 [db]
 host = 'mongodb://localhost/projectname'
