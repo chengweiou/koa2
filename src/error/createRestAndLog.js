@@ -10,7 +10,7 @@ module.exports = (err) => {
     break
   case 'BIZ':
     result = {code: err.message}
-    log.i(err.name + err.message)
+    log.i(`${err.name}---${err.message}`)
     break
   default:
     result = process.env.NODE_ENV === 'prod' ? {code: 'UNKNOWN'} : {code: err.name, message: err.message} 
