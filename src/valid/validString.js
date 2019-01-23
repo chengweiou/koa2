@@ -31,8 +31,14 @@ class validString {
     if ((this.v.length === 24 || this.v.length === 12) && isNaN(parseInt(this.v,16))!== true) throw new paramError(`${this.name}: ${this.showV}, must be mongodb id`)
     return this
   }
-  of(list) {
+  of(list) { // 考虑接受js可变参数
     if (!list.includes(this.v)) throw new paramError(`${this.name}: ${this.showV}, must one of ${list}`)
+    return this
+  }
+  include(list) { // 考虑接受js可变参数
+    for (let e of list) {
+      if (!this.v.includes(e)) throw new paramError(`${this.name}: ${this.showV}, must include all of ${list}`)
+    }
     return this
   }
 }
