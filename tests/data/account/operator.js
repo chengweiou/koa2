@@ -1,4 +1,4 @@
-const model = require('../../../src/model/xxx')
+const service = require('../../../src/service/accountService')
 
 module.exports = {
   save: () => {
@@ -7,9 +7,9 @@ module.exports = {
         require('path').join(__dirname, './data.toml'),
         'utf-8'
       )
-    )    
+    )  
     data.list.forEach(async e => {
-      await new model(e).save()
+      await service.save(e)
     })
   }
 }
