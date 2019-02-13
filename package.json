@@ -11,6 +11,10 @@
     "ws": "^6.1.2"
   },
   "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.2.2",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
     "chai": "^4.2.0",
     "eslint": "^5.11.1",
     "mocha": "^5.2.0",
@@ -20,6 +24,7 @@
     "test:ws": "mocha ./tests/ws --exit",
     "test:rest": "mocha ./tests/rest --exit",
     "test": "mocha ./tests/ws ./tests/rest --exit",
-    "serve": "supervisor app.js"
+    "serve": "supervisor -x babel-node src/app.js",
+    "build": "babel src -d build"
   }
 }

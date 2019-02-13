@@ -3,9 +3,12 @@ const paramError = require('../error/paramError')
 const validString = require('./validString')
 const validNumber = require('./validNumber')
 const validNumberList = require('./validNumberList')
+const validStringList = require('./validStringList')
 
 module.exports = {
-  string: (name, v) => new validString(name, v),
+  string: (name, ...v) => {
+    return v.length === 1 ? new validString(name, v[0]) : new validStringList(name, ...v)
+  },
   number: (name, ...v) => {
     let list = []
     for(let e of v) {

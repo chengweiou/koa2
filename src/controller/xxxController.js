@@ -2,10 +2,10 @@ const Router = require('koa-router')
 const router = new Router()
 
 const service = require('../service/xxxService')
-const valid = require('../valid')
+const valid = require('../core/valid')
 
-const fetch = require('../fetch')
-const config = require('../../config/env')
+const fetch = require('../core/fetch')
+const config = require('../config/env')
 
 router.post('/xxx', async(ctx, next) => {
   let e = {

@@ -1,5 +1,5 @@
 const model = require('../model/xxx')
-const failError = require('../error/failError')
+const failError = require('../core/error/failError')
 
 module.exports = {
   save: async(e) => {    
