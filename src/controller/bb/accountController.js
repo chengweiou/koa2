@@ -5,7 +5,7 @@ const jwt = require('../../jwt/bb')
 const randtoken = require('rand-token')
 
 const service = require('../../service/accountService')
-const valid = require('../../valid')
+const valid = require('../../core/valid')
 
 const refreshTokenMap = require('../../store/refreshTokenMap')
 const blacklist = require('../../store/bbBalckList')

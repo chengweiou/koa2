@@ -2,7 +2,7 @@ const Router = require('koa-router')
 const router = new Router()
 
 const service = require('../../service/uploadService')
-const valid = require('../../valid')
+const valid = require('../../core/valid')
 
 router.post('/bb/upload', async(ctx, next) => {
   let file = ctx.params.file

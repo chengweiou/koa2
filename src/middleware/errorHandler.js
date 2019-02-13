@@ -1,4 +1,4 @@
-const createRestAndLog = require('../error/createRestAndLog')
+const createRestAndLog = require('../core/error/createRestAndLog')
 module.exports = async (ctx, next) => {
   try {
     await next()    

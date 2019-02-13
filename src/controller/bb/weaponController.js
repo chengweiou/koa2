@@ -2,7 +2,7 @@ const Router = require('koa-router')
 const router = new Router()
 
 const service = require('../../service/weaponService')
-const valid = require('../../valid')
+const valid = require('../../core/valid')
 
 router.post('/bb/weapon', async(ctx, next) => {
   let e = {

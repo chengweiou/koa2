@@ -1,4 +1,4 @@
-const failError = require('../error/failError')
+const failError = require('../core/error/failError')
 const fs = require('fs')
 const path = require('path')
 

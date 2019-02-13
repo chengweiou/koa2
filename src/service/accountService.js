@@ -1,7 +1,7 @@
 const securityUtil = require('../util/securityUtil')
 const model = require('../model/user')
-const failError = require('../error/failError')
-const bizError = require('../error/bizError')
+const failError = require('../core/error/failError')
+const bizError = require('../core/error/bizError')
 
 module.exports = {
   save: async(e) => {

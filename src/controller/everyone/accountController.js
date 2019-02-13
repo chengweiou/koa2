@@ -5,7 +5,7 @@ const jwt = require('../../jwt/user')
 const randtoken = require('rand-token')
 
 const service = require('../../service/accountService')
-const valid = require('../../valid')
+const valid = require('../../core/valid')
 
 const blacklist = require('../../store/userBalckList')
 const refreshTokenMap = require('../../store/refreshTokenMap')
