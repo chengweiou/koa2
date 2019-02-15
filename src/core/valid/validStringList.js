@@ -23,6 +23,17 @@ class validString {
   notSame() {
     if (this.v.length !== new Set(this.v).size) throw new paramError(`${this.name}: ${this.v}, must not all same`)    
   }
+  // todo add thinking first, not valid yet
+  lengthIn(a, b) {
+    if (b) {
+      let min = Math.min(a, b)
+      let max = Math.max(a, b)
+      if (this.v.find(e => e.length < min || e.length > max)) throw new paramError(`${this.name}: ${this.showV}, length must all > ${min} && < ${max}`)
+    } else {
+      if (this.v.find(e => e.length > a))  throw new paramError(`${this.name}: ${this.showV}, length must < ${a}`)
+    }
+    return this
+  }
 }
 
 module.exports = validString
