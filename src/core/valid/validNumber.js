@@ -15,9 +15,9 @@ class validNumber {
     if (b) {
       let min = Math.min(a, b)
       let max = Math.max(a, b)
-      if (this.v < min || this.v > max) throw new paramError(`${this.name}: ${this.v}, must > ${min} && < ${max}`)
+      if (this.v < min || this.v > max) throw new paramError(`${this.name}: ${this.v}, must ${min} <= ${this.v} <= ${max}`)
     } else {
-      if (this.v > a) throw new paramError(`${this.name}: ${this.v}, must < ${a}`)
+      if (this.v > a) throw new paramError(`${this.name}: ${this.v}, must <= ${a}`)
     }
     return this
   }
