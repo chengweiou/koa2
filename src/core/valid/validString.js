@@ -17,9 +17,9 @@ class validString {
     if (b) {
       let min = Math.min(a, b)
       let max = Math.max(a, b)
-      if (this.v.length < min || this.v.length > max) throw new paramError(`${this.name}: ${this.showV}, length must > ${min} && < ${max}`)
+      if (this.v.length < min || this.v.length > max) throw new paramError(`${this.name}: ${this.showV}, length must ${min} <= ${this.showV} <= ${max}`)
     } else {
-      if (this.v.length > a)  throw new paramError(`${this.name}: ${this.showV}, length must < ${a}`)
+      if (this.v.length > a)  throw new paramError(`${this.name}: ${this.showV}, length must <= ${a}`)
     }
     return this
   }

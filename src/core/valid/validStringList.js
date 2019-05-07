@@ -21,7 +21,7 @@ class validString {
     return this
   }
   notSame() {
-    if (this.v.length !== new Set(this.v).size) throw new paramError(`${this.name}: ${this.v}, must not all same`)    
+    if (this.v.length !== new Set(this.v).size) throw new paramError(`${this.name}: ${this.v}, must not all same`)
   }
 }
 
