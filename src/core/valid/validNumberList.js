@@ -7,8 +7,8 @@ class validNumberList {
   are() {
     return this
   }
-  notSame() {    
-    if (this.v.length !== new Set(this.v).size) throw new paramError(`${this.name}: ${this.v}, must not all same`)    
+  notSame() {
+    if (this.v.length !== new Set(this.v).size) throw new paramError(`${this.name}: ${this.v}, must not all same`)
   }
 }
 module.exports = validNumberList

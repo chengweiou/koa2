@@ -17,7 +17,7 @@ log4js.configure({
       alwaysIncludePattern: true,
       maxLogSize: 104800,
       backups: 100,
-    }
+    },
   },
   categories: {
     error: { appenders: ['error', process.env.NODE_ENV !== 'prod' ? 'console' : ''], level: 'error'},

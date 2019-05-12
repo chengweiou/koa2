@@ -5,5 +5,5 @@ module.exports = {
     // case 401: return { code: 'UNAUTH' }
     default: return { code: '-1', message: status + ': ' + message }
     }
-  }
+  },
 }

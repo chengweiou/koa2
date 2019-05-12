@@ -2,7 +2,7 @@ const log = require('../log')
 module.exports = (err) => {
   let result = {}
   switch (err.name) {
-  case 'PARAM': 
+  case 'PARAM':
   case 'FAIL':
   case 'UNAUTH':
     result = process.env.NODE_ENV === 'prod' ? {code: err.name} : {code: err.name, message: err.message}
@@ -13,7 +13,7 @@ module.exports = (err) => {
     log.i(`${err.name}---${err.message}`)
     break
   default:
-    result = process.env.NODE_ENV === 'prod' ? {code: 'UNKNOWN'} : {code: err.name, message: err.message} 
+    result = process.env.NODE_ENV === 'prod' ? {code: 'UNKNOWN'} : {code: err.name, message: err.message}
     log.e(err.name, err.stack)
   }
   return result

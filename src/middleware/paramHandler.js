@@ -1,4 +1,4 @@
-module.exports = async (ctx, next) => {
+module.exports = async(ctx, next) => {
   if (ctx.request.body && ctx.request.body.constructor === String) {
     let list = ctx.request.body.split('&')
     ctx.request.body = {}
