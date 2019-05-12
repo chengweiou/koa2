@@ -20,5 +20,5 @@ module.exports = {
       }
     }
     return list.length === 1 ? new validNumber(name, list[0]) : new validNumberList(name, ...list)
-  }
+  },
 }

@@ -2,7 +2,7 @@ const log = require('../log')
 module.exports = (err) => {
   let result = {}  
   switch (err.name) {
-  case 'PARAM': 
+  case 'PARAM':
   case 'FAIL':
   case 'UNAUTH':
     result = process.env.NODE_ENV === 'prod' ? {code: err.name} : {code: err.name, message: err.message}
@@ -17,7 +17,7 @@ module.exports = (err) => {
     log.w(`${err.name}---${err.message}`, err.stack.split('\n').filter(e => e.includes('/projectname/src')).join('\n')) // todo filter的作用是只保留项目错误
     break
   default:
-    result = process.env.NODE_ENV === 'prod' ? {code: 'UNKNOWN'} : {code: err.name, message: err.message} 
+    result = process.env.NODE_ENV === 'prod' ? {code: 'UNKNOWN'} : {code: err.name, message: err.message}
     log.e(err.name, err.stack)
   }
   return result

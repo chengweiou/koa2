@@ -5,6 +5,6 @@ module.exports = {
     const hash = crypto.createHash('sha512')
     hash.update(v + salt)
     return hash.digest('hex')
- 
-  }
+
+  },
 }

@@ -13,5 +13,5 @@ module.exports = {
     ws.clients.forEach(e => {
       e.send(JSON.stringify({name, v}))
     })
-  }
+  },
 }

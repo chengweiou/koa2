@@ -2,7 +2,7 @@ const model = require('../model/xxx')
 const failError = require('../core/error/failError')
 
 module.exports = {
-  save: async(e) => {    
+  save: async(e) => {
     let exists = await model.findOne({name: e.name}, '-__v')
     if (exists) {
       throw new failError('data exists')
@@ -16,9 +16,9 @@ module.exports = {
   delete: async(e) => {
     await model.deleteOne({_id: new model(e).id})
   },
-  update: async(e) => {    
+  update: async(e) => {
     let exists = await model.findOne({_id: e._id}, '-__v')
-    let next = new model({...exists, ...e})    
+    let next = new model({...exists, ...e})
     await next.updateOne(next)
   },
   findById: async(e) => {
@@ -30,5 +30,5 @@ module.exports = {
   find: async(filter) => {
     let result = await model.find({name: {$regex: `${filter.name}.*`}}, '-__v').skip(filter.start).limit(filter.limit).sort('name')
     return result
-  }
+  },
 }

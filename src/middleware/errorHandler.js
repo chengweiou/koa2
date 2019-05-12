@@ -1,9 +1,9 @@
 const createRestAndLog = require('../core/error/createRestAndLog')
-module.exports = async (ctx, next) => {
+module.exports = async(ctx, next) => {
   try {
-    await next()    
-  } catch(err) {        
-    let rest = createRestAndLog(err)    
+    await next()
+  } catch(err) {
+    let rest = createRestAndLog(err)
     ctx.body = rest
   }
 }
