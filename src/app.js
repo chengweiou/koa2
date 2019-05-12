@@ -10,10 +10,10 @@ app.use(require('./middleware/paramHandler'))
 app.use(require('./middleware/loginUserHandler'))
 app.use(require('./router').routes()).use(require('./router').allowedMethods())
 
-const config = require('./config/env')
-const server = app.listen(config.server.port)
+const config = require('config')
+const server = app.listen(config.get('server.port'))
 
-require('./core/log/realtime').init(app.listen(config.server.log.port))
+require('./core/log/realtime').init(app.listen(config.get('server.log.port')))
 
 const mongoose = require('mongoose')
-mongoose.connect(config.db.host, {useNewUrlParser: true})
+mongoose.connect(config.get('db.host'), {useNewUrlParser: true})
