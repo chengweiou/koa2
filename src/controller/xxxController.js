@@ -5,7 +5,7 @@ const service = require('../service/xxxService')
 const valid = require('../core/valid')
 
 const fetch = require('../core/fetch')
-const config = require('../config/env')
+const config = require('config')
 
 router.post('/xxx', async(ctx, next) => {
   let e = {
@@ -33,7 +33,7 @@ router.put('/xxx/:_id', async(ctx, next) => {
     age: ctx.params.age,
   }
   if (!e.name) {
-    let rest = await fetch(`${config.site.other1}/api/user/${e._id}`, {headers: {apikey: config.site.other1.apikey}})
+    let rest = await fetch(`${config.get('site.other1')}/api/user/${e._id}`, {headers: {apikey: config.get('site.other1.apikey')}})
     e.name = rest.data.name
   }
   if (e.name)valid.string('xxx.name', e.name).is().lengthIn(1, 20)

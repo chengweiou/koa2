@@ -1,7 +1,7 @@
 const {expect} = require('chai')
 const fetch = require('../../src/core/fetch')
-const config = require('../../src/config/env')
-const host = `http://localhost:${config.server.port}`
+const config = require('config')
+const host = `http://localhost:${config.get('server.port')}`
 const db = require('../../src/db')
 const operator = require('../data/operator')
 
