@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "config": "^3.1.0",
     "koa": "^2.6.2",
     "koa-body": "^4.0.6",
     "koa-router": "^7.4.0",
@@ -23,8 +24,10 @@
   "scripts": {
     "test:ws": "mocha ./tests/ws --exit",
     "test:rest": "mocha ./tests/rest --exit",
-    "test": "mocha ./tests/ws ./tests/rest --exit",
-    "serve": "supervisor -r babel-node src/app.js",
-    "build": "babel src -d build"
+    "test": "NODE_ENV=test mocha ./tests/ws ./tests/rest --exit",
+    "serve": "NODE_ENV=dev supervisor -r babel-node src/app.js",
+    "build": "babel src -d build",
+    "serve:uat": "NODE_ENV=uat node src/app.js",
+    "serve:prod": "NODE_ENV=prod node src/app.js"
   }
 }
