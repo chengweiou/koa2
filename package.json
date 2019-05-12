@@ -1,10 +1,11 @@
 {
   "dependencies": {
     "config": "^3.1.0",
+    "http-proxy-middleware": "^0.19.1",
+    "jsonwebtoken": "^8.5.1",
     "koa": "^2.6.2",
-    "koa-body": "^4.0.6",
-    "koa-router": "^7.4.0",
-    "koa2-cors": "^2.0.6",
+    "koa-useragent": "^1.2.1",
+    "koa2-connect": "^1.0.2",
     "log4js": "^3.0.6",
     "mongoose": "^5.4.1",
     "node-fetch": "^2.3.0",
@@ -22,10 +23,10 @@
     "supervisor": "^0.12.0"
   },
   "scripts": {
-    "test:ws": "mocha ./tests/ws --exit",
-    "test:rest": "mocha ./tests/rest --exit",
-    "test": "NODE_ENV=test mocha ./tests/ws ./tests/rest --exit",
-    "serve": "NODE_ENV=dev supervisor -r babel-node src/app.js",
+    "test:util": "NODE_ENV=test mocha ./tests/util --exit",
+    "test:service": "NODE_ENV=test mocha ./tests/service --exit",
+    "test": "NODE_ENV=test mocha ./tests/util ./tests/service --exit",
+    "serve": "NODE_ENV=dev supervisor -x babel-node src/app.js",
     "build": "babel src -d build",
     "serve:uat": "NODE_ENV=uat node src/app.js",
     "serve:prod": "NODE_ENV=prod node src/app.js"

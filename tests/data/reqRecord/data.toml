@@ -1,0 +1,16 @@
+[[list]]
+  url = 'POST /logout'
+  ip = '::ffff:127.0.0.1'
+  duration = 216
+  os = 'Apple Mac OS X'
+  isMobile = false
+  browser = 'Chrome'
+  version = '73.0.3683.103'
+[[list]]
+  url = 'POST /login'
+  ip = '::ffff:127.0.0.1'
+  duration = 890
+  os = 'Apple Mac OS X'
+  isMobile = false
+  browser = 'Chrome'
+  version = '73.0.3683.103'

@@ -1,15 +1,17 @@
 const app = new (require('koa'))()
-
-app.use(require('koa-body')({multipart: true}))
-app.use(require('koa2-cors')())
 app.use(require('./middleware/init/log'))
 app.use(require('./middleware/init/ok'))
-if (process.env.NODE_ENV !== 'prod') app.use(require('./middleware/reqTimer'))
+app.use(require('./middleware/reqRecord'))
+app.use(require('./middleware/reqTimer'))
+app.use(require('koa-useragent'))
 app.use(require('./middleware/errorHandler'))
 app.use(require('./middleware/paramHandler'))
-app.use(require('./middleware/loginUserHandler'))
-app.use(require('./router').routes()).use(require('./router').allowedMethods())
 
+app.use(require('./middleware/loginUserHandler'))
+// todo tip gateway 是通过写配置文件， gateway.list 通过代码形式，二选一即可
+require('./middleware/gateway').forEach(e => {
+  app.use(e)
+})
 const config = require('config')
 const server = app.listen(config.get('server.port'))
 
