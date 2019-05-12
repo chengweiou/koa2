@@ -9,18 +9,18 @@ describe('xxx controller', () => {
   it('save, delete', async() => {
     let rest = await fetch(`${host}/xxx`, {method: 'post', body: 'name=abc&age=18'})
     expect(rest.code).to.be.deep.equal('SUCCESS')
-    let _id = rest.data    
-    rest = await fetch(`${host}/xxx/${_id}`, {method: 'delete', })
+    let _id = rest.data
+    rest = await fetch(`${host}/xxx/${_id}`, {method: 'delete' })
     expect(rest.code).to.be.deep.equal('SUCCESS')
   })
-  
+
   it('list', async() => {
     let rest = await fetch(`${host}/xxx`)
     expect(rest.code).to.be.deep.equal('SUCCESS')
     expect(rest.data.length).to.be.deep.equal(2)
   })
 
-  it('findById, update', async() => {    
+  it('findById, update', async() => {
     let rest = await fetch(`${host}/xxx`)
     let _id = rest.data[0]._id
     let name = rest.data[0].name
@@ -38,7 +38,7 @@ describe('xxx controller', () => {
   })
 
   it('findById: not exists', async() => {
-    let rest = await fetch(`${host}/xxx/537eed02ed345b2e039652d5`)    
+    let rest = await fetch(`${host}/xxx/537eed02ed345b2e039652d5`)
     expect(rest.code).to.be.deep.equal('SUCCESS')
     expect(rest.data.name).to.be.not.ok
   })

@@ -10,14 +10,14 @@ const wait = require('../../src/util/wait')
 xdescribe('bb user controller', () => {
   let token
   let refreshToken
-  it('save, delete', async() => {    
+  it('save, delete', async() => {
     let rest = await fetch(`${host}/bb/account`, {method: 'post', body: 'username=aaaadmin&password=aaaaaa', headers: {authorization: token}})
     expect(rest.code).to.be.deep.equal('SUCCESS')
-    let _id = rest.data    
+    let _id = rest.data
     rest = await fetch(`${host}/bb/account/${_id}`, {method: 'delete', headers: {authorization: token}})
     expect(rest.code).to.be.deep.equal('SUCCESS')
   })
-  
+
   it('list', async() => {
     let rest = await fetch(`${host}/bb/account`, {headers: {authorization: token}})
     expect(rest.code).to.be.deep.equal('SUCCESS')
@@ -52,7 +52,7 @@ xdescribe('bb user controller', () => {
     expect(rest.code).to.be.deep.equal('SUCCESS')
     expect(rest.data.token).to.be.ok
     expect(rest.data.refreshToken).to.be.ok
-    
+
   })
   it('refresh token', async() => {
     let rest = await fetch(`${host}/bb/token/refresh`, {method: 'post', body: `refreshToken=${refreshToken}`, headers: {authorization: token}})
@@ -65,12 +65,12 @@ xdescribe('bb user controller', () => {
   })
   it('logout', async() => {
     let rest = await fetch(`${host}/bb/logout`, {method: 'post', headers: {authorization: token}})
-    expect(rest.code).to.be.deep.equal('SUCCESS')    
+    expect(rest.code).to.be.deep.equal('SUCCESS')
     let unauthRest = await fetch(`${host}/bb/account/537eed02ed345b2e039652d5`, {headers: {authorization: token}})
-    expect(unauthRest.code).to.be.deep.equal('UNAUTH')    
+    expect(unauthRest.code).to.be.deep.equal('UNAUTH')
     rest = await fetch(`${host}/bb/login`, {method: 'post', body: 'username=admin&password=111111'})
-    token = `Bearer ${rest.data.token}`   
-    refreshToken = rest.data.refreshToken 
+    token = `Bearer ${rest.data.token}`
+    refreshToken = rest.data.refreshToken
   })
 
   it('save FAIL: username exists', async() => {
@@ -89,15 +89,15 @@ xdescribe('bb user controller', () => {
   })
   it('login FAIL: username password incorrect', async() => {
     let rest = await fetch(`${host}/bb/login`, {method: 'post', body: 'username=admin&password=222222'})
-    expect(rest.code).to.be.deep.equal('USERNAME_PASSWORD_INCORRECT')    
+    expect(rest.code).to.be.deep.equal('USERNAME_PASSWORD_INCORRECT')
   })
   before(async() => {
     await db.drop()
     operator.saveAccount()
     await wait(50) // 不然有可能数据还没插进去
-    let rest = await fetch(`${host}/bb/login`, {method: 'post', body: 'username=admin&password=111111'})    
-    token = `Bearer ${rest.data.token}`   
-    refreshToken = rest.data.refreshToken 
+    let rest = await fetch(`${host}/bb/login`, {method: 'post', body: 'username=admin&password=111111'})
+    token = `Bearer ${rest.data.token}`
+    refreshToken = rest.data.refreshToken
   })
   after(async() => {
     await db.drop()

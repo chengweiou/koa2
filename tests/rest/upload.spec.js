@@ -18,8 +18,8 @@ describe('upload controller', () => {
     await db.drop()
     operator.saveAccount()
     await wait(50) // 不然有可能数据还没插进去
-    let rest = await fetch(`${host}/bb/login`, {method: 'post', body: 'username=admin&password=111111'})    
-    token = `Bearer ${rest.data.token}`   
+    let rest = await fetch(`${host}/bb/login`, {method: 'post', body: 'username=admin&password=111111'})
+    token = `Bearer ${rest.data.token}`
   })
   after(async() => {
     // await db.drop()

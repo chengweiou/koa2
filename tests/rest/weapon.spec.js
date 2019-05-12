@@ -12,11 +12,11 @@ xdescribe('weapon controller', () => {
   it('save, delete', async() => {
     let rest = await fetch(`${host}/bb/weapon`, {method: 'post', body: 'name=chikage2&phy=92', headers: {authorization: token}})
     expect(rest.code).to.be.deep.equal('SUCCESS')
-    let _id = rest.data    
+    let _id = rest.data
     rest = await fetch(`${host}/bb/weapon/${_id}`, {method: 'delete', headers: {authorization: token}})
     expect(rest.code).to.be.deep.equal('SUCCESS')
   })
-  
+
   it('list', async() => {
     let rest = await fetch(`${host}/weapon`)
     expect(rest.code).to.be.deep.equal('SUCCESS')
@@ -42,7 +42,7 @@ xdescribe('weapon controller', () => {
   })
 
   it('findById: not exists', async() => {
-    let rest = await fetch(`${host}/weapon/537eed02ed345b2e039652d5`)    
+    let rest = await fetch(`${host}/weapon/537eed02ed345b2e039652d5`)
     expect(rest.code).to.be.deep.equal('SUCCESS')
     expect(rest.data.name).to.be.not.ok
   })
@@ -76,8 +76,8 @@ xdescribe('weapon controller', () => {
     operator.saveAccount()
     operator.saveWeapon()
     await wait(50) // 不然有可能数据还没插进去
-    let rest = await fetch(`${host}/bb/login`, {method: 'post', body: 'username=admin&password=111111'})    
-    token = `Bearer ${rest.data.token}`   
+    let rest = await fetch(`${host}/bb/login`, {method: 'post', body: 'username=admin&password=111111'})
+    token = `Bearer ${rest.data.token}`
   })
   after(async() => {
     // await db.drop()
