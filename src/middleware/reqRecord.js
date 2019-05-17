@@ -12,7 +12,8 @@ module.exports = async(ctx, next) => {
     isMobile: useragent.isMobile,
     browser: useragent.browser,
     version: useragent.version,
-    status: ctx.body,
+    status: ctx.status,
   }
+
   service.save(e)
 }

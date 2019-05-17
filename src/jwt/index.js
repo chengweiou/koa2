@@ -9,7 +9,7 @@ module.exports = {
     try {
       let token = auth.indexOf('Bearer')===0 ? auth.substring('Bearer '.length) : auth
       let decode = jwt.verify(token, config.get('jwt.sign'), { algorithm: 'HS512', issuer: config.get('jwt.issuer'), expiresIn: `${config.get('jwt.expMinute')}min`})
-      return { personId: decode.personId, extra: decode.extra }
+      return { person: {id: decode.person.id}, extra: decode.extra }
     } catch (err) {
       return null
     }
