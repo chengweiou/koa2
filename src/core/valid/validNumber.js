@@ -21,5 +21,9 @@ class validNumber {
     }
     return this
   }
+  notOf(...list) {
+    if (list.includes(this.v)) throw new paramError(`${this.name}: ${this.showV}, must not be one of ${list}`)
+    return this
+  }
 }
 module.exports = validNumber
