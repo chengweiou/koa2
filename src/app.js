@@ -15,5 +15,5 @@ const server = app.listen(config.get('server.port'))
 
 require('./core/log/realtime').init(app.listen(config.get('server.log.port')))
 
-// const mongoose = require('mongoose')
-// mongoose.connect(config.get('db.host'), {useNewUrlParser: true})
+const mongoose = require('mongoose')
+mongoose.connect(config.get('db.host'), {useNewUrlParser: true})
