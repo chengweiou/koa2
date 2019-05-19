@@ -9,3 +9,10 @@ host = 'mongodb://mongodb/bloodbrone-koa2'
 [site.other1]
 host = 'http://other1.bloodbrone-koa2.com' # todo 自行加入其它配置，如外接其它服务器
 apikey = 'apikey'
+
+[jwt]
+issuer = 'o'
+expMinute = 10
+[jwt.sign]
+bb = 'andromeda'
+user = 'andromeda'

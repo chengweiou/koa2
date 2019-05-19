@@ -1,16 +1,17 @@
 const jwt = require('jsonwebtoken')
-const key = 'bb'
+const config = require('config')
 module.exports = {
   sign: (payload) => {
     payload.date = new Date().getTime() // 防止同用户1token一样
-    return jwt.sign(payload, key, {expiresIn: '1h'})
+    return jwt.sign(payload, config.get('jwt.sign.bb'), { algorithm: 'HS512', issuer: config.get('jwt.issuer'), expiresIn: `${config.get('jwt.expMinute')}min`})
   },
   verify: (auth) => {
     try {
-      let token = auth.indexOf('Bearer')===0 ? auth.substring('Bearer '.length) : auth            
-      return jwt.verify(token, key)
-    } catch (err) {      
+      let token = auth.indexOf('Bearer')===0 ? auth.substring('Bearer '.length) : auth
+      let decode = jwt.verify(token, config.get('jwt.sign.bb'), { algorithm: 'HS512', issuer: config.get('jwt.issuer'), expiresIn: `${config.get('jwt.expMinute')}min`})
+      return { person: {id: decode.person.id}, extra: decode.extra }
+    } catch (err) {
       return null
     }
-  }
+  },
 }

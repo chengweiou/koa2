@@ -14,10 +14,10 @@ router.post('/bb/account', async(ctx, next) => {
   let e = {
     username: ctx.params.username,
     password: ctx.params.password,
-  }  
+  }
   valid.string('account.username', e.username).is().lengthIn(1, 50)
   valid.string('account.password', e.password).is().lengthIn(1, 50)
-  e = await service.save(e) 
+  e = await service.save(e)
   ctx.ok(e._id)
 })
 
@@ -29,7 +29,7 @@ router.delete('/bb/account/:_id', async(ctx, next) => {
   ctx.ok()
 })
 
-router.put('/bb/account/:_id', async(ctx, next) => {  
+router.put('/bb/account/:_id', async(ctx, next) => {
   let e = {
     _id: ctx.params._id,
     username: ctx.params.username,
@@ -42,9 +42,9 @@ router.put('/bb/account/:_id', async(ctx, next) => {
 
 router.get('/bb/account/:_id', async(ctx, next) => {
   let e = {
-    _id: ctx.params._id
+    _id: ctx.params._id,
   }
-  let account = await service.findById(e)  
+  let account = await service.findById(e)
   ctx.ok(account)
 })
 router.get('/bb/account/count', async(ctx, next) => {
@@ -58,7 +58,7 @@ router.get('/bb/account', async(ctx, next) => {
   let filter = {
     name: ctx.params.name || '',
     start: parseInt(ctx.params.start) || 0,
-    limit: parseInt(ctx.params.limit) || 10
+    limit: parseInt(ctx.params.limit) || 10,
   }
   let list = await service.find(filter)
   ctx.ok(list)
@@ -89,17 +89,17 @@ router.post('/bb/token/refresh', async(ctx, next) => {
   let token = jwt.sign({_id: _id})
   refreshToken = randtoken.uid(256)
   refreshTokenMap.save(refreshToken, _id)
-  blacklist.save(ctx.request.header.authorization, ctx.params.loginUser.exp)
+  blacklist.save(ctx.request.header.authorization, ctx.params.loginAccount.exp)
   ctx.ok({token, refreshToken})
 })
 
 router.post('/bb/logout', async(ctx, next) => {
   refreshTokenMap.remove(ctx.params.refreshToken)
-  if (!ctx.params.loginUser) {    
+  if (!ctx.params.loginAccount) {
     ctx.ok()
     return
   }
-  blacklist.save(ctx.request.header.authorization, ctx.params.loginUser.exp)
+  blacklist.save(ctx.request.header.authorization, ctx.params.loginAccount.exp)
   ctx.ok()
 })
 module.exports = router

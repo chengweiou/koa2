@@ -13,7 +13,7 @@ router.post('/bb/weapon', async(ctx, next) => {
   valid.string('weapon.name', e.name).is().lengthIn(1, 20)
   valid.number('weapon.phy', e.phy).is().in(500)
   valid.number('weapon.bld', e.bld).is().in(500)
-  e = await service.save(e) 
+  e = await service.save(e)
   ctx.ok(e._id)
 })
 
@@ -25,7 +25,7 @@ router.delete('/bb/weapon/:_id', async(ctx, next) => {
   ctx.ok()
 })
 
-router.put('/bb/weapon/:_id', async(ctx, next) => {  
+router.put('/bb/weapon/:_id', async(ctx, next) => {
   let e = {
     _id: ctx.params._id,
     name: ctx.params.name,

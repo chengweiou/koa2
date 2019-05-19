@@ -11,5 +11,5 @@ module.exports = {
   },
   get: (token) => {
     return map[token]
-  }
+  },
 }

@@ -12,9 +12,9 @@ const refreshTokenMap = require('../../store/refreshTokenMap')
 
 router.get('/account/me', async(ctx, next) => {
   let e = {
-    _id: ctx.params.loginUser._id
+    _id: ctx.params.loginAccount._id,
   }
-  let user = await service.findById(e)  
+  let user = await service.findById(e)
   ctx.ok(user)
 })
 
@@ -43,17 +43,17 @@ router.post('/token/refresh', async(ctx, next) => {
   let token = jwt.sign({_id: _id})
   refreshToken = randtoken.uid(256)
   refreshTokenMap.save(refreshToken, _id)
-  blacklist.save(ctx.request.header.authorization, ctx.params.loginUser.exp)
+  blacklist.save(ctx.request.header.authorization, ctx.params.loginAccount.exp)
   ctx.ok({token, refreshToken})
 })
 
 router.post('/logout', async(ctx, next) => {
   refreshTokenMap.remove(ctx.params.refreshToken)
-  if (!ctx.params.loginUser) {    
+  if (!ctx.params.loginAccount) {
     ctx.ok()
     return
   }
-  blacklist.save(ctx.request.header.authorization, ctx.params.loginUser.exp)
+  blacklist.save(ctx.request.header.authorization, ctx.params.loginAccount.exp)
   ctx.ok()
 })
 

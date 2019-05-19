@@ -23,13 +23,14 @@
     "chai": "^4.2.0",
     "eslint": "^5.11.1",
     "mocha": "^5.2.0",
-    "supervisor": "^0.12.0"
+    "nodemon": "^1.19.0"
   },
   "scripts": {
-    "test:ws": "mocha ./tests/ws --exit",
-    "test:rest": "mocha ./tests/rest --exit",
+    "test:ws": "NODE_ENV=test mocha ./tests/ws --exit",
+    "test:rest": "NODE_ENV=test mocha ./tests/rest --exit",
+    "test:core": "NODE_ENV=test mocha ./tests/valid --exit",
     "test": "NODE_ENV=test mocha ./tests/ws ./tests/rest --exit",
-    "serve": "NODE_ENV=dev supervisor -r babel-node src/app.js",
+    "serve": "NODE_ENV=dev nodemon src/app.js --exec babel-node",
     "build": "babel src -d build",
     "serve:uat": "NODE_ENV=uat node src/app.js",
     "serve:prod": "NODE_ENV=prod node src/app.js"
