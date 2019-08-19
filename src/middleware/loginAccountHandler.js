@@ -3,7 +3,7 @@ const blacklist = [] // todo change to redis
 module.exports = async(ctx, next) => {
   delete ctx.params.loginAccount
   let auth = ctx.headers.authorization
-  if (blacklist.contains(auth)) {
+  if (blacklist.includes(auth)) {
     await next()
     return
   }
