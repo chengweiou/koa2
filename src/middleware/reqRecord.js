@@ -1,6 +1,7 @@
 const service = require('../service/reqRecordService')
 module.exports = async(ctx, next) => {
   await next()
+  if (ctx.method === 'OPTIONS') return
   let duration = ctx.state.reqTimer.duration
   let ip = ctx.ip
   let useragent = ctx.userAgent
