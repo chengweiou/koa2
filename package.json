@@ -6,7 +6,7 @@
     "koa-router": "^7.4.0",
     "koa2-cors": "^2.0.6",
     "log4js": "^3.0.6",
-    "mongoose": "^5.4.1",
+    "mongoose": "^5.7.5",
     "node-fetch": "^2.3.0",
     "toml": "^2.3.3",
     "ws": "^6.1.2"
