@@ -27,7 +27,7 @@ gatewayList:
         v: 'andromeda'
   - url: '/home'
     option: 
-      target: 'http://127.0.0.1:61551/'
+      target: 'http://127.0.0.1:60001/'
       changeOrigin: true
       ws: true
     rewriteList:
