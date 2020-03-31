@@ -1,0 +1,35 @@
+server:
+  port: 8906
+  log:
+    port: 8910
+
+db:
+  host: 'mongodb://localhost/wormhole'
+
+site:
+  other1: 
+    host: 'http://other1.projectname.com'
+    apikey: 'apikey'
+
+jwt:
+  issuer: 'o'
+  sign: 'andromeda'
+  expMinute: 10
+
+gatewayList:
+  - url: '/andromeda'
+    option: 
+      target: 'http://127.0.0.1:60002/'
+      changeOrigin: true
+      ws: true
+    rewriteList:
+      - k: '^/andromeda'
+        v: 'andromeda'
+  - url: '/home'
+    option: 
+      target: 'http://127.0.0.1:61551/'
+      changeOrigin: true
+      ws: true
+    rewriteList:
+      - k: '^/home'
+        v: 'home'

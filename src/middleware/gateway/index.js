@@ -7,7 +7,7 @@ config.get('gatewayList').forEach(e => {
   e.rewriteList.forEach(rewrite => {
     option.pathRewrite[rewrite.k] = rewrite.v
   })
-  let gateway = k2c(proxy(e.url, option))
+  let gateway = k2c(proxy.createProxyMiddleware(e.url, option))
   list.push(gateway)
 })
 module.exports = list
