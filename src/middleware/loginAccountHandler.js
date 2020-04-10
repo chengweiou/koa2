@@ -8,6 +8,6 @@ module.exports = async(ctx, next) => {
     return
   }
   let loginAccount = require('../jwt').verify(auth)
-  ctx.headers.loginAccount = JSON.stringify(loginAccount)
+  if (loginAccount) ctx.headers.loginAccount = JSON.stringify(loginAccount)
   await next()
 }
