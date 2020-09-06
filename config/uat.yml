@@ -17,6 +17,14 @@ jwt:
   expMinute: 10
 
 gatewayList:
+  - url: '/milkyway'
+    option: 
+      target: 'http://milkyway:8906'
+      changeOrigin: true
+      ws: true
+    rewriteList:
+      - k: '^/milkyway'
+        v: 'milkyway'
   - url: '/andromeda'
     option: 
       target: 'http://andromeda:8906/'
@@ -25,11 +33,3 @@ gatewayList:
     rewriteList:
       - k: '^/andromeda'
         v: 'andromeda'
-  - url: '/home'
-    option: 
-      target: 'http://contentcensor-home:8906'
-      changeOrigin: true
-      ws: true
-    rewriteList:
-      - k: '^/home'
-        v: 'home'

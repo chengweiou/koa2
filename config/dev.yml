@@ -17,6 +17,14 @@ jwt:
   expMinute: 10
 
 gatewayList:
+  - url: '/milkyway'
+    option: 
+      target: 'http://127.0.0.1:60001/'
+      changeOrigin: true
+      ws: true
+    rewriteList:
+      - k: '^/milkyway'
+        v: 'milkyway'
   - url: '/andromeda'
     option: 
       target: 'http://127.0.0.1:60002/'
@@ -25,11 +33,3 @@ gatewayList:
     rewriteList:
       - k: '^/andromeda'
         v: 'andromeda'
-  - url: '/home'
-    option: 
-      target: 'http://127.0.0.1:60001/'
-      changeOrigin: true
-      ws: true
-    rewriteList:
-      - k: '^/home'
-        v: 'home'
