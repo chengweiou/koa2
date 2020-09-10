@@ -8,6 +8,7 @@ app.use(require('./middleware/errorHandler'))
 app.use(require('./middleware/paramHandler'))
 
 app.use(require('./middleware/loginAccountHandler'))
+app.use(require('./middleware/inServerHandler'))
 // todo tip gateway 是通过写配置文件， gateway.list 通过代码形式，二选一即可
 require('./middleware/gateway').forEach(e => {
   app.use(e)
