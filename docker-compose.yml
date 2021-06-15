@@ -1,0 +1,19 @@
+services:
+  wormhole:
+    container_name: wormhole
+    ports: 
+      - 60000:8906
+    volumes: 
+      - ~/Desktop/docker/universe/wormhole:/proj/
+    working_dir: /proj/
+    image: openjdk
+    command: node yarn serve:uat
+    depends_on: 
+      - redis
+  mongodb:
+    container_name: mongodb
+    ports: 
+      - 27017:27017
+    volumes: 
+      - ~/Desktop/docker/mongodb/data:/data/db
+    image: mongo
