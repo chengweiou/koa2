@@ -1,0 +1,18 @@
+# This file marks branches for deletion via API
+# Branches to delete:
+# dependabot/npm_and_yarn/ajv-6.12.6
+# dependabot/npm_and_yarn/bl-2.2.1
+# dependabot/npm_and_yarn/browserslist-4.16.6
+# dependabot/npm_and_yarn/decode-uri-component-0.2.2
+# dependabot/npm_and_yarn/ini-1.3.7
+# dependabot/npm_and_yarn/json5-2.2.3
+# dependabot/npm_and_yarn/lodash-4.17.21
+# dependabot/npm_and_yarn/log4js-6.4.0
+# dependabot/npm_and_yarn/minimist-1.2.6
+# dependabot/npm_and_yarn/node-fetch-2.6.7
+# dependabot/npm_and_yarn/path-parse-1.0.7
+# dependabot/npm_and_yarn/pathval-1.1.1
+# dependabot/npm_and_yarn/qs-6.11.0
+# dependabot/npm_and_yarn/urijs-1.19.11
+# dependabot/npm_and_yarn/ws-7.4.6
+# dependabot/npm_and_yarn/y18n-4.0.1
